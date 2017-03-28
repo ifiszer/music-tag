@@ -47,7 +47,7 @@ var config = require('../../config/config.json');
 				// if we have something in the text then put it in
 				if (!_.isUndefined(data.label) && !_.isUndefined(data.text) && data.text !== "") {
 					tags[data.label] = data.text;
-					console.log(data.label+":"+data.text);
+					//console.log(data.label+":"+data.text);
 				}
 			}
 
