@@ -39,7 +39,7 @@ var config = require('../../config/config.json');
 
 			if (_.isUndefined(config.labels[tag.label]) === false) {
 				var data = getTagData(content, tag, pos);
-
+				console.log(data.label+":"+data.text);
 				// is this some user defined tag?
 				if (data.label === "user_defined_text_information_frame") {
 					data = getUserData(data.text);
