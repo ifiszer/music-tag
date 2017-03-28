@@ -25,7 +25,7 @@ var config = require('../../config/config.json');
 	var getTagData = function (content, tag, pos) {
 		return {
 			label: config.labels[tag.label].toLowerCase().replace(/\s/g, '_'),
-			text: content.slice(pos + 10, pos + 10 + tag.size).toString('UTF-8').replace(/^[\u0000-\u0009]+/, '')
+			text: content.slice(pos + 10, pos + 10 + tag.size).toString('UTF-8').replace(/([\u0000-\u0009]|\uFFFD)+/g, '')
 		};
 	};
 
@@ -46,8 +46,7 @@ var config = require('../../config/config.json');
 
 				// if we have something in the text then put it in
 				if (!_.isUndefined(data.label) && !_.isUndefined(data.text) && data.text !== "") {
-					tags[data.label] = data.text;
-					//console.log(data.label+":"+data.text);
+					tags[data.label] = data.text;									
 				}
 			}
 
